@@ -7,7 +7,7 @@ const prezzoKm = 0.21;
 const percentualeScontoMinorenni = 20;
 const percentualeScontoOver65 = 40;
 
-bottone1.addEventListener("click", function () {
+bottone1.addEventListener("mousedown", function () {
   const kmRichiesti = Number(document.querySelector("#km").value);
   const etaPasseggiero = Number(document.querySelector("#age").value);
 
