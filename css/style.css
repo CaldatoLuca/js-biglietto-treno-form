@@ -1,0 +1,20 @@
+body {
+  height: 100vh;
+  background: linear-gradient(45deg, #0a2647, #2c74b3);
+  font-family: "Sansita Swashed", cursive;
+  color: white;
+}
+
+.-lc-left,
+.-lc-right {
+  background-color: #205295;
+}
+
+.-lc-input-box {
+  position: relative;
+}
+
+.-lc-left div {
+  color: #144272;
+  font-weight: bold;
+}

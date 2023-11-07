@@ -4,6 +4,7 @@ const bottone1 = document.querySelector("#btn1");
 const bottone2 = document.querySelector("#btn2");
 const elementCostoBiglietto = document.querySelector("#costo-biglietto");
 const elementIlTuoBiglietto = document.querySelector("#my-ticket");
+const elementRingraziamenti = document.querySelector("#greetings");
 const prezzoKm = 0.21;
 const percentualeScontoMinorenni = 20;
 const percentualeScontoOver65 = 40;
@@ -45,8 +46,10 @@ bottone1.addEventListener("mousedown", function () {
   }
 
   elementIlTuoBiglietto.classList.toggle("d-none");
+  elementRingraziamenti.classList.toggle("d-none");
 });
 
 bottone2.addEventListener("click", function () {
   elementIlTuoBiglietto.classList.add("d-none");
+  elementRingraziamenti.classList.add("d-none");
 });
