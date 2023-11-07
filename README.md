@@ -23,7 +23,7 @@ Creare un tasto annulla che pulisce il form e faccia sparire il biglietto
 
 ### Soluzione
 
-**Selezionare i dati tramite input e non prompt**
+**_Selezionare i dati tramite input e non prompt_**
 
 ```html
 <input id="nome-passeggero" type="text" />
@@ -41,7 +41,7 @@ const etaPasseggiero = Number(document.querySelector("#age").value);
 - ne prendo il valore inserito dall' utente con `.value` alla fine (NB - funziona solo su tag input)
 - per Km e età uso `Number` per trasformare il dato inserito in un numero effettivo (NB - a differenza di `parseInt` accetta i decimali)
 
-**Creare un evento al click del bottone per avviare il programma**
+**_Creare un evento al click del bottone per avviare il programma_**
 
 ```html
 <input type="submit" id="btn1" />
@@ -56,7 +56,7 @@ bottone1.addEventListener("mousedown", function () {});
 - si attiverà al click premuto del bottone `bottone1.addEventListener("mousedown"` (NB - esistono molti tipi di interazioni che possono attivare la function, simili a quelli usati nel css)
 - inserisco il programma dello scorso esercizio nelle parentesi graffe `function {}`
 
-**Restituire in output i dati inseriti e il prezzo finale (diverso a seconda dell' età)**
+**_Restituire in output i dati inseriti e il prezzo finale (diverso a seconda dell' età)_**
 
 ```html
 <p id="offerta"></p>
@@ -83,7 +83,7 @@ elementCostoBiglietto.innerHTML = prezzoBiglietto.toFixed(2);
 NB
 parte del codice è stata cancellata per rendere più chiaro l' uso di `.innerHTML`
 
-**Rendere il biglietto `display:none` e mostrarlo solo al click del tasto invia**
+**_Rendere il biglietto `display:none` e mostrarlo solo al click del tasto invia_**
 
 ```html
 <div id="my-ticket" class="d-none >
@@ -100,7 +100,7 @@ bottone1.addEventListener("mousedown", function () {
 - `classList` permette di lavorare con le classi di un elemento HTML e può assumere vari valori (add, remove, toggle ...)
 - in questo caso `.toggle` rimuove la classe `d-none` se presente nel div, altrimenti la aggiunge
 
-**Creare un tasto annulla che pulisce il form e faccia sparire il biglietto**
+**_Creare un tasto annulla che pulisce il form e faccia sparire il biglietto_**
 
 ```html
 <input id="btn2" type="reset" value="Annulla" />
