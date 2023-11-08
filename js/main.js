@@ -1,55 +1,53 @@
-("use strict");
+"use strict";
+//? elementi HTML
+const elementUtente = document.querySelector("#utente");
+const elementKmUtente = document.querySelector("#km");
+const elementEtaUtente = document.getElementById("eta");
+const elementButtonGenera = document.querySelector("#genera");
+const elementButtonAnnulla = document.querySelector("#annulla");
+//? elementi biglietto virtuale
+const elementBigliettoVirtuale = document.querySelector("#biglietto-virtuale");
+const elementNomeUtente = document.querySelector("#nome-utente");
+const elementTariffaBiglietto = document.querySelector("#tariffa-biglietto");
+const elementCarrozzaBiglietto = document.querySelector("#carrozza-biglietto");
+const elementCpBiglietto = document.querySelector("#cp-biglietto");
+const elementPrezzoBiglietto = document.querySelector("#prezzo-biglietto");
 
-const bottone1 = document.querySelector("#btn1");
-const bottone2 = document.querySelector("#btn2");
-const elementCostoBiglietto = document.querySelector("#costo-biglietto");
-const elementIlTuoBiglietto = document.querySelector("#my-ticket");
-const elementRingraziamenti = document.querySelector("#greetings");
-const prezzoKm = 0.21;
-const percentualeScontoMinorenni = 20;
-const percentualeScontoOver65 = 40;
+// ?dati calcolo biglietto
+const costoBigliettoKm = 0.21;
+const scontoMinorennePercentuale = 20;
+const scontoMaggiorennePercentuale = 20;
 
-bottone1.addEventListener("mousedown", function () {
-  const kmRichiesti = Number(document.querySelector("#km").value);
-  const etaPasseggiero = Number(document.querySelector("#age").value);
-  const elementNomeCognome = document.querySelector("#nome-passeggero").value;
-  const stampaNomeCognome = document.querySelector("#nome-passeggero-stampa");
-  const elementOfferta = document.querySelector("#offerta");
-  const elementCarrozza = document.querySelector("#carrozza");
-  const elementCodiceCP = document.querySelector("#codice-cp");
-  console.log(elementNomeCognome);
-  console.log(kmRichiesti);
-  console.log(etaPasseggiero);
+// !calcolo biglietto virtuale
+elementButtonGenera.addEventListener("click", function () {
+  let prezzoBiglietto = costoBigliettoKm * Number(elementKmUtente.value);
+  let tariffa = "Offerta Base";
 
-  elementOfferta.innerHTML = "Offerta base";
-  elementCarrozza.innerHTML = Math.floor(Math.random() * 10 + 1);
-  elementCodiceCP.innerHTML = Math.floor(Math.random() * 100000 + 1);
-
-  if (!isNaN(kmRichiesti) && !isNaN(etaPasseggiero)) {
-    let prezzoBiglietto = kmRichiesti * prezzoKm;
-    let scontoBiglietto = 0;
-
-    if (etaPasseggiero < 18) {
-      scontoBiglietto = (prezzoBiglietto / 100) * percentualeScontoMinorenni;
-      elementOfferta.innerHTML = "Offerta Junior";
-    } else if (etaPasseggiero >= 65) {
-      scontoBiglietto = (prezzoBiglietto / 100) * percentualeScontoOver65;
-      elementOfferta.innerHTML = "Offerta Senior";
-    }
-
-    stampaNomeCognome.innerHTML = elementNomeCognome;
-    prezzoBiglietto -= scontoBiglietto;
-    console.log("Il prezzo del biglietto è: " + prezzoBiglietto.toFixed(2));
-    elementCostoBiglietto.innerHTML = prezzoBiglietto.toFixed(2);
-  } else {
-    console.log("Errore");
+  if (elementEtaUtente.value === "minorenne") {
+    prezzoBiglietto -= (prezzoBiglietto * scontoMinorennePercentuale) / 100;
+    tariffa = "Offerta Under 18";
+  } else if (elementEtaUtente.value === "over") {
+    prezzoBiglietto -= (prezzoBiglietto * scontoMaggiorennePercentuale) / 100;
+    tariffa = "Offerta Over 65";
   }
 
-  elementIlTuoBiglietto.classList.toggle("d-none");
-  elementRingraziamenti.classList.toggle("d-none");
+  console.log(tariffa);
+
+  //* mostro biglietto virtuale
+  elementBigliettoVirtuale.classList.toggle("d-none");
+
+  //* assegno valori dom
+  elementNomeUtente.innerHTML = elementUtente.value;
+  elementTariffaBiglietto.innerHTML = tariffa;
+  elementPrezzoBiglietto.innerHTML = prezzoBiglietto.toFixed(2) + "£";
+  elementCarrozzaBiglietto.innerHTML = Math.floor(Math.random() * 10 + 1);
+  elementCpBiglietto.innerHTML = Math.floor(Math.random() * 100000 + 1);
 });
 
-bottone2.addEventListener("click", function () {
-  elementIlTuoBiglietto.classList.add("d-none");
-  elementRingraziamenti.classList.add("d-none");
+// !resetto campi di input e biglietto virtuale
+elementButtonAnnulla.addEventListener("click", function () {
+  elementUtente.value = "";
+  elementKmUtente.value = "";
+  elementEtaUtente.value = "";
+  elementBigliettoVirtuale.classList.add("d-none");
 });

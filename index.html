@@ -16,66 +16,68 @@
   </head>
   <body class="d-flex flex-column align-items-center justify-content-center">
     <div class="row justify-content-between w-75 mb-5">
+      <!-- !form-->
       <div class="-lc-left col- col-4 rounded-4 p-5 shadow-lg">
         <h1 class="mb-4 text-center">Calcola il Prezzo del tuo Biglietto</h1>
-        <form action="" class="d-flex flex-column align-items-center">
+        <div
+          id="modulo-genera-biglietto"
+          class="d-flex flex-column align-items-center"
+        >
           <div class="mb-4 -lc-input-box">
-            <div class="mb-1">Nome e Cognome</div>
-            <input id="nome-passeggero" type="text" class="rounded-3 p-1" />
+            <label class="mb-1 d-block" for="utenet">Nome e Cognome</label>
+            <input id="utente" type="text" class="rounded-3 p-1" />
           </div>
           <div class="mb-4 -lc-input-box">
-            <div class="mb-1">Km</div>
+            <label class="mb-1 d-block" for="km">Km da percorrere</label>
             <input id="km" type="number" class="rounded-3 p-1" />
           </div>
           <div class="mb-5 -lc-input-box">
-            <div class="mb-1">Età</div>
-            <input id="age" type="number" class="rounded-3 p-1" />
+            <label class="mb-1 d-block" for="eta">La tua età</label>
+            <select id="eta" class="rounded-3 p-1">
+              <option value="minorenne">Minorenne</option>
+              <option value="maggiorenne">Maggiorenne</option>
+              <option value="over">Over 65</option>
+            </select>
           </div>
           <div>
-            <input
-              type="submit"
-              id="btn1"
-              class="rounded border-0 px-3 py-1 me-2"
-            />
-            <input
-              id="btn2"
-              type="reset"
-              value="Annulla"
-              class="rounded border-0 px-3 py-1"
-            />
+            <button id="genera" class="rounded border-0 px-3 py-1 me-2">
+              Genera
+            </button>
+            <button id="annulla" class="rounded border-0 px-3 py-1">
+              Annulla
+            </button>
           </div>
-        </form>
+        </div>
       </div>
+
+      <!-- !biglietto virtuale -->
       <div
         class="-lc-right p-5 d-none col-5 rounded-4 shadow-lg d-flex flex-column justify-content-between"
-        id="my-ticket"
+        id="biglietto-virtuale"
       >
         <h1 class="text-center">Il tuo Biglietto</h1>
         <div class="d-flex justify-content-between">
-          <h4 class="text-uppercase">Nome e Cognome</h4>
-          <span id="nome-passeggero-stampa"></span>
+          <h4 class="text-uppercase">Nome Utente</h4>
+          <span id="nome-utente"></span>
         </div>
         <div class="d-flex justify-content-between">
-          <h4 class="text-uppercase">Offerta</h4>
-          <span id="offerta"></span>
+          <h4 class="text-uppercase">Tariffa</h4>
+          <span id="tariffa-biglietto"></span>
         </div>
         <div class="d-flex justify-content-between">
           <h4 class="text-uppercase">Carrozza</h4>
-          <span id="carrozza"></span>
+          <span id="carrozza-biglietto"></span>
         </div>
         <div class="d-flex justify-content-between">
           <h4 class="text-uppercase">Codice CP</h4>
-          <span id="codice-cp"></span>
+          <span id="cp-biglietto"></span>
         </div>
         <div class="d-flex justify-content-between">
-          <h4 class="text-uppercase">Prezzo del biglietto</h4>
-          <span id="costo-biglietto"></span>
+          <h4 class="text-uppercase">Prezzo Biglietto</h4>
+          <span id="prezzo-biglietto"></span>
         </div>
       </div>
     </div>
-    <h1 id="greetings" class="text-uppercase d-none">
-      grazie per averci scelto
-    </h1>
     <!-- !bootsrap js -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
