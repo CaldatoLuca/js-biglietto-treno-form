@@ -16,7 +16,7 @@ const elementPrezzoBiglietto = document.querySelector("#prezzo-biglietto");
 // ?dati calcolo biglietto
 const costoBigliettoKm = 0.21;
 const scontoMinorennePercentuale = 20;
-const scontoMaggiorennePercentuale = 20;
+const scontoMaggiorennePercentuale = 40;
 
 // !calcolo biglietto virtuale
 elementButtonGenera.addEventListener("click", function () {
